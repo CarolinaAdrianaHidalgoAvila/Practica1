@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 
 
@@ -14,10 +15,14 @@ class BackgroundActivity : AppCompatActivity() {
         get() = findViewById(R.id.btnRed)
     private val layoutPrincipal: ConstraintLayout
         get() = findViewById(R.id.layoutPrincipal)
+    private val toolBar: Toolbar
+        get() = findViewById(R.id.toolbar)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_background)
-
+        supportActionBar.let {
+            setSupportActionBar(toolBar)
+        }
         btnRed.setOnClickListener {
             layoutPrincipal.setBackgroundColor(Color.RED)
         }
